@@ -9,13 +9,21 @@ body {
 header {
     display: grid;
     align-items: center;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: max-content 1fr;
     padding: 30px 0;
-    position: absolute;
     z-index: 5;
-    width: 75%;
+    width: 90%;
+    margin: 0 auto;
     box-sizing: border-box;
-    left: 12.5%;
+    position: absolute;
+    left: 5%;
+}
+@media screen and (min-width: 600px) {
+    header {
+        width: 75%;
+        left: 12.5%;
+        grid-template-columns: 1fr 2fr;
+    }
 }
 
 header a.logo {
@@ -23,34 +31,61 @@ header a.logo {
 }
 
 header .logo svg {
-    height: 2.5rem;
-    width: 9.5 rem;
+    height: 1.5rem;
+    width: 6.5 rem;
     fill: rgb(229,9,20);
+}
+@media screen and (min-width: 600px){
+    header .logo svg {
+        height: 2.5rem;
+        width: 9.5 rem;
+    }
 }
 
 header div+div {
-    text-align: right;
+    display: grid;
+    grid-template-columns: max-content max-content;
+    gap: 5px;
+    justify-content: right;
 }
 
 header div.select {
     display: inline-block;
-    margin-right: 30px;
+    position: relative;
+}
+@media screen and (min-width: 600px){
+    header div.select {
+        margin-right: 30px;
+    }
 }
 
 header select {
-    border: none;
     color: #ffffff;
     background-color: transparent;
-    font-size: 20px;
-    padding: 6px 40px 6px 30px;
+    padding: 15px 0 17px 35px;
     border: 1px solid #ffffff;
     border-radius: 0.25rem;
+    font-size: 0;
+}
+@media screen and (min-width: 600px){
+    header select {
+        font-size: 20px;
+        padding: 6px 40px 6px 30px;
+    }
 }
 
 header div.select svg {
-    height: 1rem;
+    height: 1.3rem;
+    padding: 4px;
     position: absolute;
-    margin: 8px 8px 0 8px;
+    margin: 0;
+}
+@media screen and (min-width: 600px) {
+    header div.select svg {
+        height: 1rem;
+        padding: 0;
+        margin: 8px 8px 0 8px;
+    }
 }
 
 header div+div a {
@@ -63,9 +98,9 @@ header div+div a {
     border-radius: 0.25rem;
 }
 
-
 div.splash div.background {
     position: relative;
+    overflow: hidden;
 } 
 
 div.splash div.gradient {
@@ -76,45 +111,79 @@ div.splash div.gradient {
 }
 
 div.splash div.background img {
-    max-width: 100%;
+    height: 100vh;
     opacity: 60%;
+}
+@media screen and (min-width: 600px) {
+    div.splash div.background img {
+        height: inherit;
+    } 
 }
 
 div.splash div.content {
     display: grid;
     text-align: center;
     position: absolute;
-    max-width: 100%;
-    margin: 0 120px;
-    top: 16rem;
+    width: 100%;
+    margin: 0 auto;
+    top: 7rem;
     z-index: 5;
+}
+@media screen and (min-width: 600px) {
+    div.splash div.content {
+        top: 16rem;
+    } 
 }
 
 div.splash div.content h1 {
-    font-size: 3rem;
-    font-weight: 1000;
+    font-size: 1.5rem;
+    font-weight: 600;
     margin: 0;
+}
+@media screen and (min-width: 600px) {
+    div.splash div.content h1 {
+        font-size: 3rem;
+        font-weight: 1000;
+    } 
 }
 
 div.splash div.content h2 {
-    font-size: 1.5rem;
-    font-weight: 500;
-}
-
-div.splash div.content h3 {
     font-size: 1.25rem;
     font-weight: 500;
 }
-
-div.splash form {
-    display: grid;
-    grid-template-columns: 1fr max-content;
-    width: 60%;
-    margin: auto;
-    position: relative;
+@media screen and (min-width: 600px) {
+    div.splash div.content h2 {
+        font-size: 1.5rem;
+    } 
 }
 
-div.splash input ~ span {
+div.splash div.content h3 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+@media screen and (min-width: 600px) {
+    div.splash div.content h3 {
+        font-size: 1.25rem;
+    } 
+}
+
+div.splash form, div.faq form {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 60%;
+    margin: 30% auto 0 auto;
+    position: relative;
+    gap: 10px;
+}
+@media screen and (min-width: 600px) {
+    div.splash form, div.faq form {
+        margin: auto;
+        grid-template-columns: 1fr max-content;
+        gap: 0;
+    }
+}
+
+div.splash input ~ span, div.faq input ~ span {
     position: absolute;
     top: 22px;
     left: 20px;
@@ -123,12 +192,12 @@ div.splash input ~ span {
     pointer-events: none;
 }
 
-div.splash input:focus ~ span {
+div.splash input:focus ~ span, div.faq input:focus ~ span {
     top: 10px;
     font-size: .7rem;
 }
 
-div.splash form input {
+div.splash form input, div.faq form input {
     width: 100%;
     box-sizing: border-box;
     border: 0.5px solid #ffffff;
@@ -140,26 +209,37 @@ div.splash form input {
     opacity: 50%;
 }
 
-div.splash form button {
+div.splash form button, div.faq form button {
     color: #ffffff;
     background-color: rgb(229,9,20);
     border: none;
     padding: 15px 30px;
     border-radius: .25rem;
-    margin-left: 10px;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1rem;
+}
+@media screen and (min-width: 600px) {
+    div.splash form button, div.faq form button {
+        font-size: 1.5rem;
+        margin-left: 10px;
+    }
 }
 
 section {
     max-width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 7.5px;
-    padding: 90px 200px;
+    padding: 30px;
     border-bottom: 8px solid #666;
     align-items: center;
     position: relative;
+}
+@media screen and (min-width: 600px) {
+    section {
+        grid-template-columns: 1fr 1fr;
+        padding: 90px 200px;
+    }
 }
 
 section:first-of-type {
@@ -169,8 +249,10 @@ section:first-of-type {
     padding-top: 40px;
 }
 
-section:nth-child(even) .text {
-    order: 2;
+@media screen and (min-width: 600px) {
+    section:nth-child(even) .text {
+        order: 2;
+    }
 }
 
 section div.media img {
@@ -180,23 +262,43 @@ section div.media img {
 section div.text h1 {
     font-size: 3rem;
     font-weight: 900;
+    text-align: center;
+}
+@media screen and (min-width: 600px) {
+    section div.text h1 {
+        order: 2;
+        text-align: left;
+    }
 }
 
 section div.text p {
     font-size: 1.5rem;
     font-weight: 400;
+    text-align: center;
+}
+@media screen and (min-width: 600px) {
+    section div.text p {
+        text-align: left;
+    }
 }
 
 section.s1 img {
-    position: relative;
+    /* position: relative; */
     z-index: 5;
 }
 
 section.s1 video {
-    height: 220px;
+    height: 60%;
     position: absolute;
-    top: 120px;
-    left: 800px;
+    left: 30px;
+}
+@media screen and (min-width: 600px) {
+    section.s1 video {
+        height: 220px;
+        position: absolute;
+        top: 120px;
+        left: 800px;
+    }
 }
 
 section.s2 img {
@@ -252,6 +354,7 @@ section.s4 div.download p {
 div.faq {
     padding: 70px 0;
     text-align: center;
+    border-bottom: 8px solid #666;
 }
 
 div.faq h1 {
@@ -319,4 +422,8 @@ div.faq div.question div.answer {
 
 div.faq div.question div.answer p {
     font-size: 25px;
+}
+
+div.faq h3 {
+    margin-top: 90px;
 }
