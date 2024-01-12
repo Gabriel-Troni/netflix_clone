@@ -13,7 +13,7 @@ A clone from Netflix home page.
 
 ## Screenshots
 <div style="display: flex;">
-  <img src="./images/mobileScreenRecorded.gif" alt="Mobile screen" style="width: 40%;">
+  <img src="./images/mobileScreenRecorded.gif" alt="Mobile screen" style="height: 41vh">
   <img src="./images/mainScreen.png" alt="Main screen" style="width: 60%;">
 </div>
 
