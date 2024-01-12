@@ -98,9 +98,14 @@ header div+div a {
     border-radius: 0.25rem;
 }
 
+div.splash {
+    height: 100vh;
+} 
+
 div.splash div.background {
     position: relative;
     overflow: hidden;
+    height: inherit;
 } 
 
 div.splash div.gradient {
